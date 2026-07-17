@@ -1,0 +1,70 @@
+.about {
+    padding: 120px 24px 80px;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.about .eyebrow {
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    color: var(--teal);
+    margin-bottom: 18px;
+}
+
+.about .eyebrow::before {
+    content: "// ";
+    color: var(--text-muted);
+}
+
+.section-title {
+    font-family: "Inter", sans-serif;
+    font-size: 30px;
+    margin-bottom: 32px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+@media (max-width: 800px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.about-text {
+    font-size: 18px;
+    line-height: 1.85;
+    color: var(--text-muted);
+}
+
+.about-text strong {
+    color: var(--text);
+}
+
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-pill {
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--bg-panel);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.skill-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+}

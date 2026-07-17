@@ -1,0 +1,61 @@
+:root {
+  --bg: #0a0b12;
+  --bg-panel: #14161f;
+  --bg-panel-2: #1a1d29;
+  --border: #262a3a;
+  --text: #e8e6f0;
+  --text-muted: #8b8fa3;
+  --violet: #8b7fff;
+  --teal: #4fd1c5;
+  --amber: #f2b84b;
+  --rose: #f2745c;
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  --radius: 14px;
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: #e8f0fb;
+  --bg-panel: #ffffff;
+  --bg-panel-2: #f0f5fc;
+  --border: #d3e0f2;
+  --text: #1a1d2b;
+  --text-muted: #666b85;
+  --shadow: 0 20px 50px rgba(30, 32, 60, 0.12);
+  --violet: #7c6fef;
+  --teal: #3bb5a9;
+  --amber: #e5a73a;
+  --rose: #e06050;
+  --radius: 14px;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  background-image: radial-gradient(rgba(139, 127, 255, 0.16) 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  transition: background 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+}
+
+[data-theme="dark"] body,
+:root:not([data-theme]) body {
+  background-image: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

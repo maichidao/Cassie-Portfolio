@@ -1,0 +1,86 @@
+.contact {
+    padding: 120px 24px 80px;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.contact .eyebrow {
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    color: var(--teal);
+    margin-bottom: 18px;
+}
+.contact .eyebrow::before {
+    content: "// ";
+    color: var(--text-muted);
+}
+
+.contact-panel {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: var(--shadow);
+}
+
+.field {
+    margin-bottom: 20px;
+}
+
+.field label {
+    display: block;
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    color: var(--teal);
+    margin-bottom: 8px;
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg-panel-2);
+    color: var(--text);
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+.field textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.field input:focus,
+.field textarea:focus {
+    border-color: var(--violet);
+}
+
+.field-error {
+    color: var(--rose);
+    font-size: 12px;
+    margin-top: 6px;
+    font-family: "Inter", sans-serif;
+}
+
+.field.invalid input,
+.field.invalid textarea {
+    border-color: var(--rose);
+}
+
+.form-msg {
+    margin-top: 16px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    background: rgba(79, 209, 197, 0.12);
+    border: 1px solid var(--teal);
+    color: var(--teal);
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+}
+
+.form-msg { opacity: 0 }
+.form-msg.show { opacity: 1 }
