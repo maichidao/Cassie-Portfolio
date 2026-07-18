@@ -8,7 +8,6 @@ const dataPath = path.join(__dirname, "../data/projects.json");
 const readData = () => JSON.parse(fs.readFileSync(dataPath, "utf-8"));
 const writeData = (data) => fs.writeFileSync(dataPath, JSON.stringify(data, null, 2));
 
-// GET /api/projects?search=e-commerce&tech=ReactJS
 export const getProjects = (req, res) => {
     let projects = readData();
     const { search, tech } = req.query;
@@ -27,8 +26,6 @@ export const getProjects = (req, res) => {
     res.json({ success: true, data: projects });
 };
 
-// POST /api/projects
-
 export const createProject = (req, res) => {
     const projects = readData();
     const newProject = { id: Date.now(), ...req.body };
@@ -37,7 +34,6 @@ export const createProject = (req, res) => {
     res.status(201).json({ success: true, data: newProject });
 };
 
-// PUT/PATCH /api/projects/:id
 export const updateProject = (req, res) => {
     const projects = readData();
     const index = projects.findIndex((p) => p.id === Number(req.params.id));
@@ -49,7 +45,6 @@ export const updateProject = (req, res) => {
     res.json({ success: true, data: projects[index] });
 };
 
-// DELETE /api/projects/:id
 export const deleteProject = (req, res) => {
     let projects = readData();
     const exists = projects.some((p) => p.id === Number(req.params.id));

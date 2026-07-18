@@ -45,7 +45,6 @@ function Contact() {
         return;
         }
 
-        // TODO: send formData to a real server
         console.log("Contact data:", formData);
 
         setSubmitted(true);

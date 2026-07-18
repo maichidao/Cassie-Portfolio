@@ -1,4 +1,4 @@
-// Dữ liệu mẫu cho các dự án — thay bằng dự án thật của bạn
+
 const projects = [
     {
         id: 1,
