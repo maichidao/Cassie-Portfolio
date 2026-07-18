@@ -1,6 +1,5 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import ProjectCard from "./ProjectCard";
-import projectsData from "../data/projects";
 import "../css/Projects.css";
 
 const FILTERS = [
@@ -9,22 +8,32 @@ const FILTERS = [
     { key: "csharp", label: "C#" },
 ];
 
+const API_URL = "http://localhost:5000/api/projects";
+
 function Projects() {
     const [searchTerm, setSearchTerm] = useState("");
     const [activeFilter, setActiveFilter] = useState("all");
+    const [projects, setProjects] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    
+    useEffect(() => {
+        const params = new URLSearchParams();
+        if (searchTerm.trim()) params.append("search", searchTerm.trim());
+        if (activeFilter !== "all") params.append("tech", activeFilter);
 
-    const filteredProjects = useMemo(() => {
-    const query = searchTerm.trim().toLowerCase();
-
-    return projectsData.filter((project) => {
-        const matchesFilter =
-            activeFilter === "all" || project.tech.includes(activeFilter);
-
-        const haystack = `${project.title} ${project.tags.join(" ")}`.toLowerCase();
-        const matchesSearch = haystack.includes(query);
-
-        return matchesFilter && matchesSearch;
-        });
+        setLoading(true);
+        fetch(`${API_URL}?${params.toString()}`)
+            .then((res) => res.json())
+            .then((res) => {
+                setProjects(res.data);
+                setError(null);
+            })
+            .catch((err) => {
+                console.error(err);
+                setError("Can not load data.");
+            })
+            .finally(() => setLoading(false));
     }, [searchTerm, activeFilter]);
 
     return (
@@ -52,12 +61,16 @@ function Projects() {
         </div>
 
         <div className="project-grid">
-            {filteredProjects.length === 0 ? (
-            <div className="empty-state">// No matching projects found.</div>
+            {loading ? (
+                <div className="empty-state">// Loading projects...</div>
+            ) : error ? (
+                <div className="empty-state">// {error}</div>
+            ) : projects.length === 0 ? (
+                <div className="empty-state">// No matching projects found.</div>
             ) : (
-            filteredProjects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
-            ))
+                projects.map((project) => (
+                    <ProjectCard key={project.id} project={project} />
+                ))
             )}
         </div>
         </section>

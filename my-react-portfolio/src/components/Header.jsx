@@ -1,4 +1,5 @@
 import {useState, useEffect} from "react";
+import { Moon, Sun } from "lucide-react";
 import "../css/Header.css";
 
 const NAV_ITEMS = [
@@ -68,7 +69,7 @@ function Header({theme, onToggleTheme}){
                 aria-label="Toggle light/dark mode"
                 onClick={onToggleTheme}
             >
-                {theme === "dark" ? "🌙" : "☀️"}
+                {theme === "dark" ? <Moon size={25} /> : <Sun size={25} />}
             </button>
         </header>
     );
