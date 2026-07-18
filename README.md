@@ -45,7 +45,7 @@ cd my-react-portfolio
 npm install lucide-react
 npm run dev
 ```
- 
+
 Dự án sẽ chạy tại `http://localhost:5173`.
 
 ## 📁 Cấu trúc thư mục
@@ -76,6 +76,5 @@ Cassie-Portfolio/
 │   │   └── projectRoutes.js
 │   ├── server.js
 │   └── package.json
-├── AI_PROMPTS.md
 └── README.md
 ```
