@@ -15,6 +15,7 @@
 }
 
 [data-theme="light"] {
+  
   --bg: #e8f0fb;
   --bg-panel: #ffffff;
   --bg-panel-2: #f0f5fc;
